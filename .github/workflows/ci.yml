@@ -1,0 +1,38 @@
+name: ci
+
+env:
+  TZ: 'Asia/Tokyo'
+
+on: [push]
+
+jobs:
+  ci-node:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: ./.node-version
+
+      - name: Check node dependencies
+        uses: actions/cache@v3
+        id: cache_dependency_npm
+        env:
+          cache-name: cache-dependency-npm
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install node dependencies
+        if: ${{ steps.cache_dependency_npm.outputs.cache-hit != 'true' }}
+        run: npm ci --no-audit --progress=false --silent
+
+      - name: Type check and test
+        shell: bash
+        run: |
+          npm run check
+          npm run unit

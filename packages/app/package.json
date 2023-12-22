@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "check": "run-p check:*",
+    "check:type": "tsc --noEmit",
+    "check:format": "biome format .",
+    "check:lint": "biome lint .",
+    "build": "ts-node ./build.ts",
+    "fix": "biome format . --write",
+    "unit": "vitest run --config vitest.config.ts"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "@types/node": "20.10.5",
+    "nodemon": "3.0.2",
+    "ts-node": "10.9.2",
+    "typescript": "5.3.3",
+    "vite": "4.5.1",
+    "vitest": "0.34.6"
+  }
+}

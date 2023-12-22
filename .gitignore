@@ -1,0 +1,13 @@
+# typescript
+node_modules
+cdk.out
+tsconfig.tsbuildinfo
+
+# python
+*.egg-info/
+.venv
+
+# other
+.vim
+.DS_Store
+dist

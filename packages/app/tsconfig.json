@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.esm.json",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "types": ["vitest/globals", "vitest/importMeta"]
+  },
+  "ts-node": {
+    "esm": true
+  }
+}

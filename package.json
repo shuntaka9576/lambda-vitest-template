@@ -1,0 +1,16 @@
+{
+  "name": "iac",
+  "version": "0.1.0",
+  "scripts": {
+    "check": "npm run check -ws",
+    "fix": "npm run fix -ws",
+    "unit": "npm run unit -ws"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.4.1",
+    "npm-run-all": "4.1.5"
+  }
+}

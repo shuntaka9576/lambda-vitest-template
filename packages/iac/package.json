@@ -1,0 +1,21 @@
+{
+  "name": "lambda-vitest-template",
+  "version": "0.1.0",
+  "scripts": {
+    "check": "run-p check:*",
+    "check:type": "tsc --noEmit",
+    "check:format": "biome format .",
+    "check:lint": "biome lint .",
+    "fix": "biome format . --write",
+    "unit": "echo 'no settings'",
+    "deploy": "npm run build -w app;npx cdk deploy vitest-sample-lambda-stack"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.114.1",
+    "constructs": "10.3.0"
+  },
+  "devDependencies": {
+    "aws-cdk": "2.114.1",
+    "ts-node": "10.9.2"
+  }
+}
